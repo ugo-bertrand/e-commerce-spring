@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Document("User")
 public class User {
     @Id
-    private Long id;
+    private String id;
     private String username;
     private String firstname;
     private String lastname;
@@ -22,7 +22,7 @@ public class User {
     public User(){
 
     }
-    public User(Long id, String username, String firstname, String lastname, String password, String email, LocalDate dateOfBirth, boolean active){
+    public User(String id, String username, String firstname, String lastname, String password, String email, LocalDate dateOfBirth, boolean active){
         this.id = id;
         this.username = username;
         this.firstname = firstname;
@@ -33,25 +33,24 @@ public class User {
         this.active = active;
     }
 
-    public User(User user){
-        this.id = user.id;
-        this.username = user.username;
-        this.firstname = user.firstname;
-        this.lastname = user.lastname;
-        this.password = user.password;
-        this.email = user.email;
-        this.dateOfBirth = user.dateOfBirth;
-        this.active = user.active;
+    public User(String username, String firstname, String lastname, String password, String email, LocalDate dateOfBirth){
+        this.username = username;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.password = password;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
+        this.active = Boolean.TRUE;
     }
 
     // GETTER AND SETTER
 
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
